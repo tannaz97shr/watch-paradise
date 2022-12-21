@@ -1,5 +1,5 @@
 import { getFeaturedWatches } from "../dummy-data";
-import ProductList from "../components/product-list";
+import ProductList from "../components/products/product-list";
 
 function HomePage() {
   const featuredWatches = getFeaturedWatches();

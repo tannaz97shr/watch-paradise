@@ -1,4 +1,4 @@
-import { ProducType } from "../models/general";
+import { ProducType } from "../../models/general";
 
 export interface ProductItemProps {
   item: ProducType;
