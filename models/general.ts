@@ -11,3 +11,5 @@ export interface IWatch {
   productCode: string;
   image: string;
 }
+
+export type ProducType = IWatch;
