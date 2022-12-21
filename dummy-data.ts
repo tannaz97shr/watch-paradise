@@ -20,7 +20,7 @@ const DUMMY_WATCHS: IWatch[] = [
       "Seiko caliber V157, Solar Diver's 200m, power reserve up to 10 months, unidirectional rotating bezel in stainless steel with aluminium",
     price: 549,
     gender: "male",
-    isFeatured: false,
+    isFeatured: true,
     productCode: "SNE591P1",
     image:
       "https://www.irantimer.com/Images/Products/Middle/f66241135dca405694f89149f2509492.jpg",
