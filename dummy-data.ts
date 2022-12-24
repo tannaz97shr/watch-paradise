@@ -11,7 +11,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: false,
     productCode: "001348",
     image:
-      "https://www.irantimer.com/Images/Products/Middle/a384974b5c9b4c6d8ff5578b4b5ab3be.jpg",
+      "/images/ice.jpg",
   },
   {
     id: "w2",
@@ -23,7 +23,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: true,
     productCode: "SNE591P1",
     image:
-      "https://www.irantimer.com/Images/Products/Middle/f66241135dca405694f89149f2509492.jpg",
+      "/images/seiko.jpg",
   },
   {
     id: "w3",
@@ -35,7 +35,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: true,
     productCode: "LTP-1308D-1A2VDF",
     image:
-      "https://www.irantimer.com/Images/Products/Middle/e2fec78cc5ad4ce5afe118a60d18608d.jpg",
+      "/images/casio.jpg",
   },
   {
     id: "w4",
@@ -47,7 +47,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: true,
     productCode: "CA7063-12A",
     image:
-      "https://www.irantimer.com/Images/Products/Middle/aa54a57188ec4c75a20c1f9a0c0bd316.jpg",
+      "/images/citizen.jpg",
   },
 ];
 
