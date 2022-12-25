@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import Button from "../ui/button/button";
 import { ProductItemProps } from "./types";
 import {
   ProductCardStyled,
@@ -30,6 +31,7 @@ const ProductItem = (props: ProductItemProps) => {
             <span>featured</span>
           </CardDetailStyled>
         )}
+        <Button link={`/products/${item.id}`}>Details</Button>
       </ProductContentStyled>
     </ProductCardStyled>
   );
