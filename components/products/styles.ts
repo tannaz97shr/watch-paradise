@@ -9,6 +9,8 @@ export const ProductListStyled = styled.div`
   @media only screen and ${device.lg} {
     flex-direction: row;
     flex-wrap: wrap;
+    width: 68rem;
+    margin: auto;
   }
 `;
 
