@@ -51,5 +51,11 @@ export const CardDetailStyled = styled.div`
   margin-bottom: 0.25rem;
   display: flex;
   align-items: center;
-  font-size: .75rem;
+  font-size: 0.75rem;
+`;
+
+export const CardButtonStyled = styled.div`
+  margin-top: auto;
+  display: flex;
+  justify-content: end;
 `;

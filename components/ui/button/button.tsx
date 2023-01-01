@@ -7,12 +7,7 @@ interface ButtonProps {
 }
 
 const Button = (props: ButtonProps) => {
-  return (
-    <Link href={props.link}>
-      <ButtonStyled>{props.children}</ButtonStyled>
-    </Link>
-  );
+  return <ButtonStyled href={props.link}>{props.children}</ButtonStyled>;
 };
 
 export default Button;
-

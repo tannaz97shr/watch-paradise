@@ -8,6 +8,7 @@ import {
   CardTitleStyled,
   CardDetailStyled,
   ImageContainerStyled,
+  CardButtonStyled,
 } from "./styles";
 
 const ProductItem = (props: ProductItemProps) => {
@@ -31,7 +32,9 @@ const ProductItem = (props: ProductItemProps) => {
             <span>featured</span>
           </CardDetailStyled>
         )}
-        <Button link={`/products/${item.id}`}>Details</Button>
+        <CardButtonStyled>
+          <Button link={`/products/${item.id}`}>Details</Button>
+        </CardButtonStyled>
       </ProductContentStyled>
     </ProductCardStyled>
   );
