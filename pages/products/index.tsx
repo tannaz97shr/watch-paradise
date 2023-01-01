@@ -1,8 +1,16 @@
+import { Fragment } from "react";
+
+import { getAllWatches } from "../../dummy-data";
+import ProductList from "../../components/products/product-list";
+
 function ProductPage() {
+
+  const allWatches = getAllWatches();
+
     return (
-      <div>
-        <h1>The Product Page</h1>
-      </div>
+      <Fragment>
+        <ProductList items={allWatches} />
+      </Fragment>
     );
   }
   
