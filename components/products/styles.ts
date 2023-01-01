@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Image from "next/image";
+
 import { theme, device } from "../../constants/theme";
 
 export const ProductListStyled = styled.div`
@@ -58,4 +60,65 @@ export const CardButtonStyled = styled.div`
   margin-top: auto;
   display: flex;
   justify-content: end;
+`;
+
+export const ProductDetailContainer = styled.div`
+  @media only screen and ${device.lg} {
+    width: 45rem;
+    margin: auto;
+  }
+`;
+
+export const ProductDetailsTitleStyled = styled.h2`
+  color: ${theme.fourthColor};
+  text-shadow: 1px 1px 2px ${theme.fifthColor};
+  margin-left: 0.75rem;
+`;
+
+export const ProductDetailsLogisticsStyled = styled.div`
+  background: ${theme.fifthColor};
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 0.5rem;
+  margin: 0.25rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media only screen and ${device.lg} {
+    flex-direction: row;
+  }
+`;
+
+export const ProductDetailsImageStyled = styled.div`
+  border: 2px solid ${theme.fourthColor};
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: none;
+  @media only screen and ${device.lg} {
+    width: 250px;
+    height: 250px;
+  }
+`;
+
+export const ProductDetailsContentStyled = styled.div`
+  margin-top: 0.5rem;
+  color: ${theme.firstColor};
+  font-weight: 600;
+  width: 100%;
+  margin-left: 0.5rem;
+  & span {
+    color: black;
+  }
+  & div {
+    margin-bottom: 0.5rem;
+  }
+`;
+
+export const ProductDetailsDescriptionStyled = styled.div`
+  margin: 1rem 0.75rem;
+  color: ${theme.fifthColor};
+  font-weight: 600;
 `;

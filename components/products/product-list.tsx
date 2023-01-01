@@ -7,7 +7,7 @@ const ProductList = (props: ProductsListProps) => {
   return (
     <ProductListStyled>
       {items?.map((item) => (
-        <ProductItem item={item} />
+        <ProductItem key={item.id} item={item} />
       ))}
     </ProductListStyled>
   );
