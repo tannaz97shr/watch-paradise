@@ -19,7 +19,7 @@ export const HeaderStyled = styled.header`
 `;
 
 export const HeaderLogoContainerStyled = styled.div`
-  padding-top: 0.75rem;
+  padding: 0.75rem .5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@ export const HeaderLinkStyled = styled(Link)`
   font-weight: bold;
   font-size: 1.2rem;
   & span {
-    margin-left: 0.75rem;
+    margin-left: 0.25rem;
     color: ${theme.fourthColor};
     font-size: 1.5rem;
     font-weight: bold;
@@ -49,4 +49,9 @@ export const HeaderUlStyled = styled.ul`
   & li {
     margin-bottom: 0.5rem;
   }
+`;
+
+export const IconBurbgerMenuStyled = styled.div`
+    position: absolute;
+    left: 0.5rem;
 `;
