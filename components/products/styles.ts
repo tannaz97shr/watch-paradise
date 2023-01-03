@@ -21,6 +21,7 @@ export const ProductCardStyled = styled.div`
   overflow: hidden;
   margin: 0.5rem;
   background: ${theme.fifthColor};
+  box-shadow: 0 2px 8px ${theme.fifthColor}80;
   @media only screen and ${device.lg} {
     flex-direction: column;
     width: 250px;
@@ -30,7 +31,7 @@ export const ProductCardStyled = styled.div`
 
 export const ProductContentStyled = styled.div`
   display: flex;
-  flex: 1;
+  flex: 2;
   background: ${theme.fifthColor};
   padding: 0.25rem 0.5rem;
   flex-direction: column;
@@ -38,11 +39,11 @@ export const ProductContentStyled = styled.div`
 
 export const ImageContainerStyled = styled.div`
   position: relative;
-  width: 100px;
-  height: 100px;
+  flex: 1;
   @media only screen and ${device.lg} {
     width: 250px;
     height: 250px;
+    flex: none;
   }
 `;
 
@@ -98,11 +99,6 @@ export const ProductDetailsImageStyled = styled.div`
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  flex: none;
-  @media only screen and ${device.lg} {
-    width: 250px;
-    height: 250px;
-  }
 `;
 
 export const ProductDetailsContentStyled = styled.div`
