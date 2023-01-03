@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-import { theme } from "../../constants/theme";
+import { device, theme } from "../../constants/theme";
+
+// @media only screen and ${device.lg}
 
 export const MainStyled = styled.div`
   margin-top: 4.25rem;
@@ -20,6 +22,11 @@ export const HeaderStyled = styled.header`
   & .active {
     left: 0;
   }
+  @media only screen and ${device.lg} {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export const HeaderUlStyled = styled.ul`
@@ -37,6 +44,27 @@ export const HeaderUlStyled = styled.ul`
   & li {
     margin-bottom: 0.5rem;
   }
+  @media only screen and ${device.lg} {
+    display: flex;
+    position: static;
+    margin: 0 0 0 6rem;
+    padding: 0.5rem 0 0 0;
+    flex: 1;
+    height: 100%;
+    align-items: center;
+    box-shadow: none;
+    & li {
+      margin-right: 1.5rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      &:hover {
+        background: ${theme.fourthColor};
+        & a {
+          color: ${theme.secondColor};
+        }
+      }
+    }
+  }
 `;
 
 export const HeaderLogoContainerStyled = styled.div`
@@ -51,7 +79,7 @@ export const HeaderLinkStyled = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: ${theme.fifthColor};
+  color: ${theme.fourthColor};
   font-weight: bold;
   font-size: 1.2rem;
   & span {
@@ -61,9 +89,16 @@ export const HeaderLinkStyled = styled(Link)`
     font-weight: bold;
     text-shadow: 0 8px 8px ${theme.fourthColor}55;
   }
+  @media only screen and ${device.lg} {
+    margin-right: auto;
+  }
 `;
 
 export const IconBurbgerMenuStyled = styled.div`
   position: absolute;
   left: 0.5rem;
+  top: 1rem;
+  @media only screen and ${device.lg} {
+    display: none;
+  }
 `;
