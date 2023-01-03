@@ -13,13 +13,34 @@ export const HeaderStyled = styled.header`
   margin-bottom: 1rem;
   width: 100%;
   height: 4rem;
-  position: absolute;
+  z-index: 4;
+  position: fixed;
   top: 0;
   left: 0;
+  & .active {
+    left: 0;
+  }
+`;
+
+export const HeaderUlStyled = styled.ul`
+  list-style: none;
+  width: 16rem;
+  position: fixed;
+  top: 3rem;
+  left: -20rem;
+  z-index: 5;
+  height: 100vh;
+  background: ${theme.secondColor};
+  box-shadow: 0 2px 8px ${theme.secondColor};
+  padding-top: 2rem;
+  transition: all 0.3s ease-in-out;
+  & li {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export const HeaderLogoContainerStyled = styled.div`
-  padding: 0.75rem .5rem;
+  padding: 0.75rem 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,16 +63,7 @@ export const HeaderLinkStyled = styled(Link)`
   }
 `;
 
-export const HeaderUlStyled = styled.ul`
-  list-style: none;
-  margin-left: 0.75rem;
-  margin-top: 2rem;
-  & li {
-    margin-bottom: 0.5rem;
-  }
-`;
-
 export const IconBurbgerMenuStyled = styled.div`
-    position: absolute;
-    left: 0.5rem;
+  position: absolute;
+  left: 0.5rem;
 `;

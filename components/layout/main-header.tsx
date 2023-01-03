@@ -14,7 +14,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   return (
     <Fragment>
-      {/* <Backdrop  isOpen={isMenuOpen} onClick={() => setIsMenuOpen(false)} /> */}
+      <Backdrop  isOpen={isMenuOpen} onClick={() => setIsMenuOpen(false)} />
       <HeaderStyled>
         <HeaderLogoContainerStyled>
           <IconBurbgerMenuStyled onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -34,14 +34,14 @@ const Header = () => {
             <span>Paradise</span>
           </HeaderLinkStyled>
         </HeaderLogoContainerStyled>
-        {/* <HeaderUlStyled>
-            <li>
-              <HeaderLinkStyled href="/products">Products</HeaderLinkStyled>
-            </li>
-            <li>
-              <HeaderLinkStyled href="/about">About</HeaderLinkStyled>
-            </li>
-          </HeaderUlStyled> */}
+      <HeaderUlStyled className={isMenuOpen ? "active": ""}>
+        <li>
+          <HeaderLinkStyled href="/products">Products</HeaderLinkStyled>
+        </li>
+        <li>
+          <HeaderLinkStyled href="/about">About</HeaderLinkStyled>
+        </li>
+      </HeaderUlStyled>
       </HeaderStyled>
     </Fragment>
   );
