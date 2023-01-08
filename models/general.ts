@@ -10,6 +10,7 @@ export interface IWatch {
   gender: gender;
   productCode: string;
   image: string;
+  brand: string;
 }
 
 export type ProducType = IWatch;

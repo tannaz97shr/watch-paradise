@@ -11,6 +11,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: false,
     productCode: "001348",
     image: "/images/ice.jpg",
+    brand: "Glitter",
   },
   {
     id: "w2",
@@ -22,6 +23,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: true,
     productCode: "SNE591P1",
     image: "/images/seiko.jpg",
+    brand: "Seiko",
   },
   {
     id: "w3",
@@ -33,6 +35,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: true,
     productCode: "LTP-1308D-1A2VDF",
     image: "/images/casio.jpg",
+    brand: "Casio",
   },
   {
     id: "w4",
@@ -44,6 +47,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: true,
     productCode: "CA7063-12A",
     image: "/images/citizen.jpg",
+    brand: "Citizen",
   },
   {
     id: "w5",
@@ -55,6 +59,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: false,
     productCode: "001348",
     image: "/images/ice.jpg",
+    brand: "Glitter",
   },
   {
     id: "w6",
@@ -66,6 +71,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: false,
     productCode: "SNE591P1",
     image: "/images/seiko.jpg",
+    brand: "Seiko",
   },
   {
     id: "w7",
@@ -77,6 +83,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: false,
     productCode: "LTP-1308D-1A2VDF",
     image: "/images/casio.jpg",
+    brand: "Casio",
   },
   {
     id: "w8",
@@ -88,6 +95,7 @@ const DUMMY_WATCHS: IWatch[] = [
     isFeatured: false,
     productCode: "CA7063-12A",
     image: "/images/citizen.jpg",
+    brand: "Citizen",
   },
 ];
 
@@ -95,8 +103,18 @@ export const getFeaturedWatches = (): IWatch[] => {
   return DUMMY_WATCHS.filter((watch) => watch.isFeatured);
 };
 
-export const getWatchById = (id: string | string[] | undefined): IWatch | undefined => {
+export const getWatchById = (
+  id: string | string[] | undefined
+): IWatch | undefined => {
   return DUMMY_WATCHS.find((watch) => watch.id === id);
 };
 
 export const getAllWatches = (): IWatch[] => DUMMY_WATCHS;
+
+export const extractBrands = (): string[] => {
+  let brandsArray: string[] = [];
+  DUMMY_WATCHS.forEach((watch) => {
+    if (!brandsArray.includes(watch.brand)) brandsArray.push(watch.brand);
+  });
+  return brandsArray;
+};
