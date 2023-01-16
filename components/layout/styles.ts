@@ -15,7 +15,7 @@ export const HeaderStyled = styled.header`
   margin-bottom: 1rem;
   width: 100%;
   height: 4rem;
-  z-index: 4;
+  z-index: 5;
   position: fixed;
   top: 0;
   left: 0;

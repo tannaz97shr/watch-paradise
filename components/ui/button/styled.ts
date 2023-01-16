@@ -26,11 +26,9 @@ export const ButtonStyled = styled.button<ButtonProps>`
   background: ${(props) =>
     props.primary ? theme.fourthColor : theme.secondColor};
   display: flex;
-  border: 1px solid
-    ${(props) => (props.primary ? theme.secondColor : theme.fourthColor)};
+  border: 1px solid ${(props) => (props.primary ? theme.secondColor : theme.fourthColor)};
   width: fit-content;
   padding: 0.35rem;
   border-radius: 5px;
   font-weight: bold;
-  border: none;
 `;

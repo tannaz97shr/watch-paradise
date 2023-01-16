@@ -1,3 +1,4 @@
+import { Inputs } from "./components/products/types";
 import { IWatch } from "./models/general";
 
 const DUMMY_WATCHS: IWatch[] = [
@@ -117,4 +118,15 @@ export const extractBrands = (): string[] => {
     if (!brandsArray.includes(watch.brand)) brandsArray.push(watch.brand);
   });
   return brandsArray;
+};
+
+export const getFilteredProducts = (filterData: Inputs): IWatch[] => {
+  const { brands, gender, priceMin, priceMax } = filterData;
+  return DUMMY_WATCHS.filter(
+    (watch) =>
+      (brands.length ? brands.includes(watch.brand) : true) &&
+      (gender ? gender === watch.gender : true) &&
+      watch.price >= priceMin &&
+      watch.price <= priceMax
+  );
 };

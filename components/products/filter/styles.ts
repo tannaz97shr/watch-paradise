@@ -7,6 +7,10 @@ export const FilterContainer = styled.div`
   display: flex;
   width: 100%;
   padding: 0.5rem;
+
+  & .active {
+    left: 0
+  }
 `;
 
 export const FilterFormContainerStyled = styled.div`
@@ -18,7 +22,7 @@ export const FilterFormContainerStyled = styled.div`
   box-shadow: 0 2px 8px ${theme.secondColor};
   transition: all 0.3s ease-in-out;
   top: 4rem;
-  left: 0;
+  left: -20rem;
   background: ${theme.secondColor};
   box-shadow: 0 2px 8px ${theme.secondColor};
   color: ${theme.fourthColor};
@@ -41,6 +45,12 @@ export const FilterLabelStyled = styled.label`
   & span {
     min-width: 4rem;
   }
+`;
+
+export const FilterResetFieldStyled = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
 `;
 
 export const FilterInputPriceStyled = styled.input`
