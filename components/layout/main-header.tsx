@@ -16,18 +16,18 @@ const Header = () => {
     <Fragment>
       <Backdrop isOpen={isMenuOpen} onClick={() => setIsMenuOpen(false)} />
       <HeaderStyled>
-          <IconBurbgerMenuStyled onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? (
-              <Image src="/icons/cross.png" alt="menu" width={30} height={30} />
-            ) : (
-              <Image
-                src="/icons/burger-menu.png"
-                alt="menu"
-                width={30}
-                height={30}
-              />
-            )}
-          </IconBurbgerMenuStyled>
+        <IconBurbgerMenuStyled onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? (
+            <Image src="/icons/cross.png" alt="menu" width={30} height={30} />
+          ) : (
+            <Image
+              src="/icons/burger-menu.png"
+              alt="menu"
+              width={30}
+              height={30}
+            />
+          )}
+        </IconBurbgerMenuStyled>
         <HeaderLogoContainerStyled>
           <HeaderLinkStyled href="/">
             <Image src="/icons/diamond.png" alt="Logo" width={40} height={40} />
@@ -36,10 +36,20 @@ const Header = () => {
         </HeaderLogoContainerStyled>
         <HeaderUlStyled className={isMenuOpen ? "active" : ""}>
           <li>
-            <HeaderLinkStyled href="/products">Products</HeaderLinkStyled>
+            <HeaderLinkStyled
+              onClick={() => setIsMenuOpen(false)}
+              href="/products"
+            >
+              Products
+            </HeaderLinkStyled>
           </li>
           <li>
-            <HeaderLinkStyled href="/about">About</HeaderLinkStyled>
+            <HeaderLinkStyled
+              onClick={() => setIsMenuOpen(false)}
+              href="/about"
+            >
+              About
+            </HeaderLinkStyled>
           </li>
         </HeaderUlStyled>
       </HeaderStyled>
