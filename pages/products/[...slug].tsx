@@ -3,10 +3,14 @@ import { useRouter } from "next/router";
 import { getFilteredProducts } from "../../dummy-data";
 import { Inputs } from "../../components/products/types";
 import ProductList from "../../components/products/product-list";
+import { IWatch } from "../../models/general";
+import Button from "../../components/ui/button/button";
+import { ProductsEmptyListStyled } from "../../components/products/styles";
 
 function FilteredProductsPage() {
   const router = useRouter();
   const filterData = router.query.slug;
+  let filteredProducts: IWatch[] = [];
   if (filterData) {
     const brandsArray: string[] =
       filterData[0] !== "undefined" ? filterData[0].split(",") : [];
@@ -17,14 +21,14 @@ function FilteredProductsPage() {
       priceMax:
         filterData[3] !== "undefined" ? +filterData[3] : Number.MAX_VALUE,
     };
-    const filteredProducts = getFilteredProducts(getFilteredProductsParams);
-    return <ProductList items={filteredProducts} />
+    filteredProducts = getFilteredProducts(getFilteredProductsParams);
   }
-
+  if (filteredProducts.length) return <ProductList items={filteredProducts} />;
   return (
-    <div>
-      <h1>The Filtered Products Page</h1>
-    </div>
+    <ProductsEmptyListStyled>
+      <div>No Product Found !</div>
+      <Button link="/products">Back to List</Button>
+    </ProductsEmptyListStyled>
   );
 }
 

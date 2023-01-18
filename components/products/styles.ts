@@ -122,3 +122,11 @@ export const ProductDetailsDescriptionStyled = styled.div`
   color: ${theme.fifthColor};
   font-weight: 600;
 `;
+
+export const ProductsEmptyListStyled = styled.div`
+  display: flex;
+  color: ${theme.fourthColor};
+  flex-direction: column;
+  font-weight: 700;
+  align-items: center;
+`;
