@@ -1,21 +1,19 @@
 import { Fragment } from "react";
 import { useRouter } from "next/router";
-import { GetStaticProps } from "next";
 
-import { getAllWatches } from "../../dummy-data";
 import ProductList from "../../components/products/product-list";
 import Filter from "../../components/products/filter/filter";
 import { Inputs } from "../../components/products/types";
-// import { getProducts } from "../../helpers/axios/products";
+import { getProducts } from "../../helpers/axios/products";
+import { IWatch } from "../../models/general";
 
 interface ProductPageProps {
-  isOK: string;
+  products: IWatch[];
 }
 
-function ProductPage(props: any) {
-  console.log("props", props);
+function ProductPage(props: ProductPageProps) {
   const router = useRouter();
-  const allWatches = getAllWatches();
+  const allWatches = props.products;
 
   const filterProductHandler = (params: Inputs) => {
     const fullPath = `/products/${
@@ -34,11 +32,13 @@ function ProductPage(props: any) {
 }
 
 export async function getStaticProps() {
+  const products = await getProducts();
+
   return {
     props: {
-      isOK: "felan",
+      products,
     },
   };
-};
+}
 
 export default ProductPage;

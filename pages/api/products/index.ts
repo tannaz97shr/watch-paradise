@@ -1,20 +1,22 @@
-import { WithId } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { connectDatabase } from "../../../helpers/db-helper";
+import fs from "fs";
+import path from "path";
 
-type ProductsType = { products: WithId<Document>[] };
+type ProductsType = { products: any };
 
-async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
-  // const client = await connectDatabase();
-  console.log("testi");
+export const getAllDataFs = () => {
+  const filepath = path.join(process.cwd(), "data", "products.json");
+  // const fileData = fs.readFileSync(filepath);
+  // const data = JSON.parse(fileData.toString());
+  const data = fs.readFileSync(filepath);
+  return JSON.parse(data.toString());
+};
+
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
-    // const db = client.db();
-
-    // const products = await db.collection("products").find().toArray();
-
-    res.status(200).json({ products: [{ t: "1" }, { t: "2" }] });
+    const data = getAllDataFs();
+    res.status(200).json(data);
   }
-  // client.close;
 }
 
 export default handler;
