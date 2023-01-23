@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import ProductList from "../../components/products/product-list";
 import Filter from "../../components/products/filter/filter";
 import { Inputs } from "../../components/products/types";
-import { getProducts } from "../../helpers/axios/products";
+import { getProducts } from "../../helpers/requests/products";
 import { IWatch } from "../../models/general";
 
 interface ProductPageProps {
