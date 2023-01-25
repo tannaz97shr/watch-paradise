@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { GetServerSideProps } from "next/types";
 
 import { getFilteredProducts } from "../../dummy-data";
 import { Inputs } from "../../components/products/types";
@@ -6,20 +7,21 @@ import ProductList from "../../components/products/product-list";
 import { IWatch } from "../../models/general";
 import Button from "../../components/ui/button/button";
 import { ProductsEmptyListStyled } from "../../components/products/styles";
+import { getFilteredProducts as testGetFilteredProducts } from "../../helpers/requests/products";
 
 function FilteredProductsPage() {
   const router = useRouter();
-  const filterData = router.query.slug;
+  const filterParams = router.query.slug;
   let filteredProducts: IWatch[] = [];
-  if (filterData) {
+  if (filterParams) {
     const brandsArray: string[] =
-      filterData[0] !== "undefined" ? filterData[0].split(",") : [];
+      filterParams[0] !== "undefined" ? filterParams[0].split(",") : [];
     const getFilteredProductsParams: Inputs = {
       brands: brandsArray,
-      gender: filterData[1] !== "undefined" ? filterData[1] : "",
-      priceMin: filterData[2] !== "undefined" ? +filterData[2] : 0,
+      gender: filterParams[1] !== "undefined" ? filterParams[1] : "",
+      priceMin: filterParams[2] !== "undefined" ? +filterParams[2] : 0,
       priceMax:
-        filterData[3] !== "undefined" ? +filterData[3] : Number.MAX_VALUE,
+        filterParams[3] !== "undefined" ? +filterParams[3] : Number.MAX_VALUE,
     };
     filteredProducts = getFilteredProducts(getFilteredProductsParams);
   }
@@ -31,5 +33,21 @@ function FilteredProductsPage() {
     </ProductsEmptyListStyled>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (constext) => {
+  const fetchedParams = constext.params?.slug;
+  let params: string[] = [];
+  if (typeof fetchedParams === "object") {
+    params = fetchedParams;
+  }
+
+  const products = await testGetFilteredProducts(params);
+
+  return {
+    props: {
+      products: "",
+    },
+  };
+};
 
 export default FilteredProductsPage;
