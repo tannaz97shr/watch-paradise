@@ -1,15 +1,18 @@
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next/types";
 
-import { getFilteredProducts } from "../../dummy-data";
 import { Inputs } from "../../components/products/types";
 import ProductList from "../../components/products/product-list";
 import { IWatch } from "../../models/general";
 import Button from "../../components/ui/button/button";
 import { ProductsEmptyListStyled } from "../../components/products/styles";
-import { getFilteredProducts as testGetFilteredProducts } from "../../helpers/requests/products";
+import { getFilteredProducts } from "../../helpers/requests/products";
 
-function FilteredProductsPage() {
+interface FilteredProductsPage {
+  products: IWatch[];
+}
+
+function FilteredProductsPage(props: FilteredProductsPage) {
   const router = useRouter();
   const filterParams = router.query.slug;
   let filteredProducts: IWatch[] = [];
@@ -23,7 +26,7 @@ function FilteredProductsPage() {
       priceMax:
         filterParams[3] !== "undefined" ? +filterParams[3] : Number.MAX_VALUE,
     };
-    filteredProducts = getFilteredProducts(getFilteredProductsParams);
+    filteredProducts = props.products;
   }
   if (filteredProducts.length) return <ProductList items={filteredProducts} />;
   return (
@@ -41,11 +44,10 @@ export const getServerSideProps: GetServerSideProps = async (constext) => {
     params = fetchedParams;
   }
 
-  const products = await testGetFilteredProducts(params);
-
+  const products = await getFilteredProducts(params);
   return {
     props: {
-      products: "",
+      products: products.products,
     },
   };
 };
