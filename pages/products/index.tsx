@@ -1,14 +1,19 @@
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 
-import { getAllWatches } from "../../dummy-data";
 import ProductList from "../../components/products/product-list";
 import Filter from "../../components/products/filter/filter";
 import { Inputs } from "../../components/products/types";
+import { getProducts } from "../../helpers/requests/products";
+import { IWatch } from "../../models/general";
 
-function ProductPage() {
+interface ProductPageProps {
+  products: IWatch[];
+}
+
+function ProductPage(props: ProductPageProps) {
   const router = useRouter();
-  const allWatches = getAllWatches();
+  const allWatches = props.products;
 
   const filterProductHandler = (params: Inputs) => {
     const fullPath = `/products/${
@@ -24,6 +29,16 @@ function ProductPage() {
       <ProductList items={allWatches} />
     </Fragment>
   );
+}
+
+export async function getStaticProps() {
+  const products = await getProducts();
+
+  return {
+    props: {
+      products,
+    },
+  };
 }
 
 export default ProductPage;
